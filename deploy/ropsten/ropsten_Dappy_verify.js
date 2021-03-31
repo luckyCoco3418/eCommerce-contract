@@ -2,17 +2,16 @@ const { ethers, run } = require("hardhat");
 const { ropsten: network_ } = require("../../addresses");
 
 module.exports = async () => {
-  const gridZoneStakingBot = await ethers.getContract("GridZoneStakingBot");
+  const dappy = await ethers.getContract("Dappy");
   try {
     await run("verify:verify", {
-      address: gridZoneStakingBot.address,
+      address: dappy.address,
       constructorArguments: [
-        network_.ZONE.tokenAddress,
-        network_.ZONE.vaultAddress,
+        network_.USDT.tokenAddress,
       ],
-      contract: "contracts/Staking/GridZoneStakingBot.sol:GridZoneStakingBot",
+      contract: "contracts/Dappy.sol:Dappy",
     });
   } catch(e) {
   }
 };
-module.exports.tags = ["ropsten_GridZoneStakingBot_verify"];
+module.exports.tags = ["ropsten_Dappy_verify"];

@@ -5,14 +5,13 @@ module.exports = async ({ deployments }) => {
   const { deploy } = deployments;
   const [deployer] = await ethers.getSigners();
 
-  console.log("Now deploying GridZoneStakingBot...");
-  const gridZoneStakingBot = await deploy("GridZoneStakingBot", {
+  console.log("Now deploying Dappy...");
+  const dappy = await deploy("Dappy", {
     from: deployer.address,
     args: [
-      network_.ZONE.tokenAddress,
-      network_.ZONE.vaultAddress,
+      network_.USDT.tokenAddress,
     ],
   });
-  console.log("GridZoneStakingBot contract address: ", gridZoneStakingBot.address);
+  console.log("Dappy contract address: ", dappy.address);
 };
-module.exports.tags = ["ropsten_GridZoneStakingBot_deploy"];
+module.exports.tags = ["ropsten_Dappy_deploy"];
